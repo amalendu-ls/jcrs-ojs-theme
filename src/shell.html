@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}} | Journal of Cultural Research Studies (Draft)</title>
+<link rel="stylesheet" href="jcrs-custom.css">
+<link rel="stylesheet" href="preview.css">
+</head>
+<body>
+<div class="draft-note">DRAFT PREVIEW. This is not the live site.</div>
+
+<div class="topbar"><div class="wrap">
+  <span class="publisher">PUBLISHED BY: DEVELOPMENT AND RESEARCH ACADEMY FOR FOLK AND TRIBES (ESTD 2011)</span>
+  <span>ISSN: 2583-6137 (ONLINE)</span>
+</div></div>
+
+<header class="brand"><div class="wrap">
+  <a href="{{home}}" class="brand-link">
+    <img src="https://lh3.googleusercontent.com/d/10kn40nTforqKU7Zno02Y_fW1CjnNjd3U" referrerpolicy="no-referrer" width="74" height="83" alt="Development and Research Academy for Folk and Tribes logo">
+    <span>
+      <span class="brand-title">Journal of Cultural Research Studies</span>
+      <span class="brand-tag">A blind peer-reviewed international multidisciplinary online open access journal</span>
+    </span>
+  </a>
+</div></header>
+
+<nav class="pkp_structure_head pkp_navigation_primary_row navbar" id="navbar" aria-label="Main menu"><div class="wrap">
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu"><span class="bars" aria-hidden="true"></span>Menu</button>
+  <a class="nav-search" href="#">Search</a>
+  <ul class="pkp_navigation_primary" id="menu">
+    <li><a href="{{home}}" data-nav="home">Home</a></li>
+    <li><a href="{{about}}" data-nav="about">About</a></li>
+    <li><a href="{{editorial}}" data-nav="editorial">Editorial Team</a></li>
+    <li><a href="{{current}}" data-nav="current">Current Issue</a></li>
+    <li><a href="{{archive}}" data-nav="archive">Archives</a></li>
+    <li><a href="{{guidelines}}" data-nav="guidelines">Author Guidelines</a></li>
+    <li><a href="{{contact}}" data-nav="contact">Contact</a></li>
+  </ul>
+  <a class="nav-submit-desktop" href="{{submit}}">Submit Manuscript</a>
+</div></nav>
+
+<div class="wrap layout">
+<main class="pkp_structure_content">
+{{CONTENT}}
+</main>
+
+<aside class="sidebar">
+  <div class="pkp_block block_make_submission"><a href="{{submit}}">Make a Submission</a></div>
+  <div class="pkp_block block_custom">
+{{EIC_BLOCK}}
+  </div>
+  <div class="pkp_block"><span class="title">Information</span>
+    <ul><li><a href="#">For Readers</a></li><li><a href="{{guidelines}}">For Authors</a></li><li><a href="#">For Librarians</a></li></ul></div>
+</aside>
+</div>
+
+<footer class="pkp_structure_footer_wrapper"><div class="wrap">
+{{FOOTER}}
+</div></footer>
+
+<div class="mobile-cta"><a href="{{submit}}">Submit Manuscript</a></div>
+
+<script>
+  (function () {
+    var nav = document.getElementById('navbar');
+    var btn = nav.querySelector('.nav-toggle');
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    var cur = nav.querySelector('[data-nav="{{NAV}}"]');
+    if (cur) { cur.classList.add('is-current'); cur.setAttribute('aria-current', 'page'); }
+  })();
+</script>
+</body>
+</html>

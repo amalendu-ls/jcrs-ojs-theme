@@ -1,0 +1,13 @@
+{
+ "note": "From the journal's OJS issue records (published issues). Covers missing for issues 8 and 2.",
+ "issues": [
+  {"id": 9, "vol": 5, "num": 1, "year": 2026, "month": "August 2026", "items": 8, "cover": "https://culturalstudies.in/journal/public/journals/1/cover_issue_9_en_US.jpg"},
+  {"id": 1, "vol": 4, "num": 2, "year": 2025, "month": "December 2025", "items": 9, "cover": "https://culturalstudies.in/journal/public/journals/1/cover_issue_1_en_US.jpg"},
+  {"id": 8, "vol": 4, "num": 1, "year": 2025, "month": "July 2025", "items": 12, "cover": ""},
+  {"id": 7, "vol": 3, "num": 2, "year": 2024, "month": "December 2024", "items": 6, "cover": "https://culturalstudies.in/journal/public/journals/1/cover_issue_7_en_US.jpg"},
+  {"id": 5, "vol": 3, "num": 1, "year": 2024, "month": "April 2024", "items": 10, "cover": "https://culturalstudies.in/journal/public/journals/1/cover_issue_5_en_US.jpg"},
+  {"id": 4, "vol": 2, "num": 2, "year": 2023, "month": "November 2023", "items": 13, "cover": "https://culturalstudies.in/journal/public/journals/1/cover_issue_4_en_US.jpg"},
+  {"id": 3, "vol": 2, "num": 1, "year": 2023, "month": "March 2023", "items": 9, "cover": "https://culturalstudies.in/journal/public/journals/1/cover_issue_3_en_US.jpg"},
+  {"id": 2, "vol": 1, "num": 1, "year": 2022, "month": "September 2022", "items": 5, "cover": ""}
+ ]
+}

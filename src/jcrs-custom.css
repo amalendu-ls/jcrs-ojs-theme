@@ -1,0 +1,447 @@
+/* =========================================================
+   JCRS – custom style sheet for the OJS 3.3 Default theme
+   Mobile-first. Upload at:
+   Settings > Website > Appearance > Advanced > "Journal style sheet"
+   ========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=Noto+Serif+Bengali:wght@400;600&display=swap");
+
+:root {
+  --jcrs-maroon: #7a2414;
+  --jcrs-maroon-dark: #561709;
+  --jcrs-gold: #c8952e;
+  --jcrs-gold-light: #ddb04f;
+  --jcrs-cream: #f7efe1;
+  --jcrs-sand: #ecdcc0;
+  --jcrs-olive: #4b4a12;
+  --jcrs-ink: #2a2420;
+  --jcrs-muted: #6b6159;
+  --jcrs-line: #e3d6c3;
+  --jcrs-radius: 10px;
+}
+
+/* ---------- Base (phones first) ---------- */
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--jcrs-cream); color: var(--jcrs-ink); font-size: 16px; line-height: 1.6;
+  font-family: "Source Sans 3", "Noto Serif Bengali", system-ui, sans-serif; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+h1, h2, h3, .pkp_site_name a { font-family: "Playfair Display", "Noto Serif Bengali", Georgia, serif; line-height: 1.25; }
+a { color: var(--jcrs-maroon); }
+a:hover, a:focus-visible { color: var(--jcrs-maroon-dark); }
+:focus-visible { outline: 3px solid var(--jcrs-gold); outline-offset: 2px; }
+[lang="bn"], :lang(bn) { font-family: "Noto Serif Bengali", "Source Sans 3", serif; }
+
+/* ---------- OJS header, nav, layout ---------- */
+.pkp_structure_head { background: var(--jcrs-maroon); border-bottom: 4px solid var(--jcrs-gold); }
+.pkp_navigation_primary_row { background: var(--jcrs-maroon-dark); }
+.pkp_navigation_primary > li > a { color: #fff; font-weight: 600; }
+.pkp_navigation_primary > li > a:hover,
+.pkp_navigation_primary > li > a:focus { color: var(--jcrs-gold); border-color: var(--jcrs-gold); }
+.pkp_site_nav_toggle { background: var(--jcrs-gold); color: var(--jcrs-ink); border-radius: 6px; }
+.pkp_navigation_search_wrapper a { color: #fff; }
+.pkp_structure_content { background: #fff; border-radius: var(--jcrs-radius); }
+.pkp_block .title { color: var(--jcrs-maroon); font-family: "Playfair Display", serif; }
+.block_make_submission a { display: block; text-align: center; background: var(--jcrs-maroon); color: #fff;
+  border: 0; border-radius: 6px; padding: 12px 16px; font-weight: 700; text-decoration: none; }
+.block_make_submission a:hover { background: var(--jcrs-maroon-dark); color: #fff; }
+.pkp_structure_footer_wrapper { background: var(--jcrs-maroon-dark); color: #f3e6d3; }
+.pkp_structure_footer_wrapper a { color: var(--jcrs-gold); }
+
+/* ---------- Sidebar: Editor-in-Chief block (Custom Block Manager) ---------- */
+.jcrs-eic-block { text-align: center; }
+.jcrs-eic-block .title { display: block; text-align: left; margin-bottom: 12px; font: 700 1.08rem "Playfair Display", serif; color: var(--jcrs-maroon); }
+.jcrs-eic-block-photo { display: block; width: 110px; height: 110px; margin: 0 auto 10px; border-radius: 50%; object-fit: cover;
+  border: 4px solid var(--jcrs-cream); box-shadow: 0 6px 16px rgba(86,23,9,.2); }
+.jcrs-eic-block strong { display: block; font: 700 1rem/1.3 "Playfair Display", serif; color: var(--jcrs-ink); margin-bottom: 6px; }
+.jcrs-eic-block p { margin: 0 0 6px; font-size: .86rem; line-height: 1.45; color: var(--jcrs-muted); }
+.jcrs-eic-block a { font-weight: 600; overflow-wrap: anywhere; }
+
+/* PDF viewer page (article/view/ID/galleyID): the Custom Header plugin also injects the journal header here,
+   which pushed OJS's blue title/Download bar down over the PDF. Hide it on this page only. */
+body:has(> .header_view) > header.w-full { display: none !important; }
+body:has(> .header_view) > .header_view { position: fixed; top: 0; left: 0; right: 0; }
+body:has(> .header_view) > .galley_view { top: 30px !important; }
+
+/* ---------- Footer (Settings > Website > Appearance > Setup > Page footer) ---------- */
+.pkp_structure_footer_wrapper { padding: 26px 0 10px; font-size: .92rem; }
+.pkp_structure_footer { padding: 0; }
+.pkp_footer_content { padding: 0 0 10px; }
+.jcrs-footer { display: grid; grid-template-columns: 1fr; gap: 20px; color: #f3e6d3; }
+.jcrs-footer .footer-h { display: block; color: #fff; margin: 0 0 8px; font: 700 1rem "Playfair Display", serif; }
+.jcrs-footer p { margin: 0 0 6px; color: #f3e6d3; }
+.jcrs-footer a { color: var(--jcrs-gold); }
+/* The footer template carries an inline yellow background, so !important is needed here */
+.pkp_structure_footer_wrapper { background: var(--jcrs-maroon-dark) !important; color: #f3e6d3 !important; }
+/* Developer credit not shown */
+.pkp_brand_footer { display: none !important; }
+
+/* ---------- Shared building blocks ---------- */
+.jcrs-page { display: grid; gap: 28px; }
+.jcrs-page-head { border-bottom: 2px solid var(--jcrs-sand); padding-bottom: 14px; }
+.jcrs-page-head .jcrs-kicker { color: var(--jcrs-gold); }
+.jcrs-page-head h2 { font-size: 1.75rem; color: var(--jcrs-maroon); margin: 0 0 6px; }
+.jcrs-page-head p { margin: 0; color: var(--jcrs-muted); }
+.jcrs-kicker { text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; font-weight: 700; margin: 0 0 8px; }
+
+.jcrs-section h3 { font-size: 1.3rem; color: var(--jcrs-maroon); margin: 0 0 12px; padding-bottom: 8px; border-bottom: 2px solid var(--jcrs-sand); }
+.jcrs-section h4 { font-size: 1.05rem; margin: 18px 0 6px; color: var(--jcrs-ink); font-family: "Source Sans 3", sans-serif; font-weight: 700; }
+.jcrs-section p { margin: 0 0 12px; }
+.jcrs-section ul, .jcrs-section ol { margin: 0 0 12px; padding-left: 22px; }
+.jcrs-section li { margin-bottom: 6px; }
+
+.jcrs-chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0 !important; margin: 4px 0 0; }
+.jcrs-chips li { background: var(--jcrs-sand); color: var(--jcrs-olive); border-radius: 6px; padding: 5px 11px; font-weight: 600; font-size: .86rem; margin: 0; }
+
+.jcrs-cards { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.jcrs-card { border: 1px solid var(--jcrs-line); border-top: 4px solid var(--jcrs-gold); border-radius: 8px; padding: 14px 16px; background: #fff; }
+.jcrs-card h4 { margin: 0 0 6px; font-size: 1.02rem; color: var(--jcrs-ink); font-family: "Source Sans 3", sans-serif; font-weight: 700; }
+.jcrs-card p { margin: 0; color: var(--jcrs-muted); font-size: .94rem; }
+.jcrs-card a.jcrs-more { display: inline-block; margin-top: 10px; font-weight: 700; text-decoration: none; }
+.jcrs-role { display: block; color: var(--jcrs-maroon); font-weight: 700; font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+
+.jcrs-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 20px;
+  border-radius: 8px; font-weight: 700; text-decoration: none; text-align: center; }
+.jcrs-btn-primary { background: var(--jcrs-gold); color: var(--jcrs-ink) !important; }
+.jcrs-btn-primary:hover { background: var(--jcrs-gold-light); }
+.jcrs-btn-ghost { border: 2px solid rgba(255,255,255,.85); color: #fff !important; }
+.jcrs-btn-ghost:hover { background: rgba(255,255,255,.12); }
+.jcrs-btn-solid { background: var(--jcrs-maroon); color: #fff !important; }
+.jcrs-btn-solid:hover { background: var(--jcrs-maroon-dark); }
+.jcrs-actions { display: grid; gap: 10px; }
+
+.jcrs-note { background: var(--jcrs-cream); border: 1px dashed var(--jcrs-gold); border-radius: 8px; padding: 12px 14px; font-size: .92rem; color: var(--jcrs-muted); }
+.jcrs-cfp { background: var(--jcrs-sand); border-left: 6px solid var(--jcrs-maroon); border-radius: 8px; padding: 16px 18px; }
+.jcrs-cfp h3 { border: 0; padding: 0; margin: 0 0 6px; font-size: 1.15rem; color: var(--jcrs-maroon); }
+.jcrs-cfp p { margin: 0; }
+
+/* ---------- Home ---------- */
+.jcrs-hero { display: flex; flex-direction: column; gap: 20px; background: linear-gradient(150deg, var(--jcrs-maroon) 0%, var(--jcrs-maroon-dark) 100%);
+  color: #fff; border-radius: var(--jcrs-radius); padding: 22px 18px; }
+.jcrs-hero-cover { order: -1; align-self: center; width: 150px; border-radius: 6px; box-shadow: 0 10px 28px rgba(0,0,0,.35); }
+.jcrs-hero .jcrs-kicker { color: var(--jcrs-gold); }
+.jcrs-hero h2 { color: #fff; font-size: 1.55rem; margin: 0 0 12px; }
+.jcrs-hero p { color: #f3e6d3; margin: 0 0 16px; }
+.jcrs-badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; padding: 0; list-style: none; }
+.jcrs-badges li { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.28); border-radius: 999px; padding: 4px 12px; font-size: .85rem; }
+.jcrs-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.jcrs-stat { background: var(--jcrs-cream); border: 1px solid var(--jcrs-line); border-radius: var(--jcrs-radius); padding: 14px 10px; text-align: center; }
+.jcrs-stat strong { display: block; font-family: "Playfair Display", serif; font-size: 1.45rem; color: var(--jcrs-maroon); }
+.jcrs-stat span { color: var(--jcrs-muted); font-size: .88rem; }
+.jcrs-explore .jcrs-card { border-top-color: var(--jcrs-maroon); }
+
+/* ---------- About ---------- */
+.jcrs-facts { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.jcrs-facts th, .jcrs-facts td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--jcrs-line); }
+.jcrs-facts th { width: 38%; color: var(--jcrs-maroon); font-weight: 700; background: var(--jcrs-cream); }
+.jcrs-area-group { margin-bottom: 14px; }
+.jcrs-area-group h4 { margin: 0 0 8px; }
+
+/* ---------- Editorial team ---------- */
+.jcrs-eic { display: grid; gap: 16px; align-items: center; background: var(--jcrs-cream); border: 1px solid var(--jcrs-line);
+  border-left: 6px solid var(--jcrs-gold); border-radius: var(--jcrs-radius); padding: 18px; }
+.jcrs-avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--jcrs-maroon); color: #fff; display: grid; place-items: center;
+  font: 700 1.3rem "Playfair Display", serif; flex: none; }
+.jcrs-eic-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; justify-self: center;
+  border: 4px solid #fff; box-shadow: 0 6px 18px rgba(86,23,9,.22); }
+.jcrs-eic { text-align: center; }
+.jcrs-eic h4 { margin: 0 0 4px; font-size: 1.2rem; font-family: "Playfair Display", serif; }
+.jcrs-eic p { margin: 0 0 4px; color: var(--jcrs-muted); }
+.jcrs-people { display: grid; grid-template-columns: 1fr; gap: 10px; list-style: none; padding: 0 !important; margin: 0; }
+.jcrs-people li { margin: 0; border: 1px solid var(--jcrs-line); border-radius: 8px; padding: 12px 14px; background: #fff; }
+.jcrs-people strong { display: block; color: var(--jcrs-ink); }
+.jcrs-people span { color: var(--jcrs-muted); font-size: .92rem; }
+.jcrs-country { display: inline-block; margin-top: 6px; font-size: .75rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--jcrs-olive); background: var(--jcrs-sand); border-radius: 4px; padding: 1px 8px; }
+
+/* ---------- Issue pages (OJS native markup: issue/current, issue/view) ---------- */
+.page_issue h1, .page_issue_archive h1 { font-size: 1.75rem; color: var(--jcrs-maroon); margin: 0 0 16px; }
+.obj_issue_toc > .heading { display: grid; gap: 16px; align-items: start; background: linear-gradient(150deg, var(--jcrs-maroon) 0%, var(--jcrs-maroon-dark) 100%);
+  color: #fff; border-radius: var(--jcrs-radius); padding: 20px; margin-bottom: 24px; }
+.obj_issue_toc > .heading .cover { justify-self: center; }
+.obj_issue_toc > .heading .cover img { width: 140px; border-radius: 6px; box-shadow: 0 10px 28px rgba(0,0,0,.35); }
+.obj_issue_toc > .heading .description, .obj_issue_toc > .heading .description p { color: #f3e6d3; margin: 0 0 6px; }
+.obj_issue_toc > .heading .description strong { color: #fff; }
+.obj_issue_toc > .heading h1 { color: #fff; margin: 0 0 8px; }
+.obj_issue_toc > .heading .published { color: var(--jcrs-gold); font-weight: 700; }
+.obj_issue_toc > .heading .published .label { margin-right: 6px; }
+.obj_issue_toc .section > h2 { background: var(--jcrs-cream); color: var(--jcrs-maroon); border-left: 4px solid var(--jcrs-gold);
+  padding: 8px 12px; font-size: 1.05rem; margin: 22px 0 4px; }
+.obj_issue_toc .cmp_article_list { list-style: none; margin: 0; padding: 0; }
+.obj_article_summary { display: grid; gap: 6px; padding: 14px 0; border-bottom: 1px solid var(--jcrs-line); }
+.obj_article_summary .title { font: 600 1.04rem/1.45 "Source Sans 3", "Noto Serif Bengali", sans-serif; margin: 0; }
+.obj_article_summary .title a { color: var(--jcrs-ink); text-decoration: none; }
+.obj_article_summary .title a:hover { color: var(--jcrs-maroon); }
+.obj_article_summary .meta { display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--jcrs-muted); font-size: .92rem; }
+.obj_article_summary .galleys_links { list-style: none; margin: 4px 0 0; padding: 0; display: flex; gap: 8px; }
+.obj_galley_link { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border: 1px solid var(--jcrs-maroon);
+  color: var(--jcrs-maroon); border-radius: 6px; font-weight: 700; text-decoration: none; }
+.obj_galley_link:hover { background: var(--jcrs-maroon); color: #fff; }
+
+/* ---------- Archive (OJS native markup: issue/archive) ---------- */
+.page_issue_archive .jcrs-page-head { margin-bottom: 22px; }
+.page_issue_archive .jcrs-page-head h1 { margin: 0 0 6px; }
+
+/* Featured latest issue */
+.jcrs-latest { display: grid; gap: 18px; align-items: center; margin-bottom: 30px; padding: 20px; border-radius: var(--jcrs-radius);
+  background: linear-gradient(150deg, var(--jcrs-maroon) 0%, var(--jcrs-maroon-dark) 100%); color: #fff; }
+.jcrs-latest .cover { justify-self: center; }
+.jcrs-latest .cover img { display: block; width: 150px; border-radius: 5px; box-shadow: 0 10px 26px rgba(0,0,0,.35); }
+.jcrs-latest h2 { margin: 6px 0 4px; font: 700 1.6rem/1.2 "Playfair Display", serif; }
+.jcrs-latest h2 a { color: #fff; text-decoration: none; }
+.jcrs-latest-meta { margin: 0 0 16px; color: #f3e6d3; }
+.jcrs-latest .jcrs-btn-solid { background: var(--jcrs-gold); color: var(--jcrs-ink) !important; }
+.jcrs-latest .jcrs-btn-solid:hover { background: var(--jcrs-gold-light); }
+.jcrs-badge-new { display: inline-block; background: var(--jcrs-gold); color: var(--jcrs-ink); font-size: .72rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase; border-radius: 4px; padding: 2px 8px; }
+
+/* Volume headings */
+.jcrs-vol { display: flex; align-items: baseline; gap: 10px; margin: 0 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--jcrs-sand);
+  font: 700 1.15rem "Playfair Display", serif; color: var(--jcrs-muted); }
+.jcrs-vol span { color: var(--jcrs-maroon); }
+
+/* Compact issue cards */
+.issues_archive { display: grid; grid-template-columns: 1fr; gap: 10px; list-style: none; padding: 0; margin: 0 0 26px; }
+.issues_archive > li { margin: 0; }
+.issues_archive .obj_issue_summary { display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; align-items: center; height: 100%;
+  padding: 10px 14px 10px 10px; background: #fff; border: 1px solid var(--jcrs-line); border-radius: 8px;
+  transition: border-color .15s, box-shadow .15s; }
+.issues_archive .obj_issue_summary:hover { border-color: var(--jcrs-gold); box-shadow: 0 6px 18px rgba(86,23,9,.12); }
+.issues_archive .cover img, .issues_archive .jcrs-cover-ph { display: block; width: 64px; aspect-ratio: 5 / 8; object-fit: cover;
+  border-radius: 3px; border: 1px solid var(--jcrs-line); }
+.jcrs-cover-ph { display: grid; place-content: center; text-align: center; gap: 2px; font: 700 .8rem "Playfair Display", serif;
+  color: var(--jcrs-maroon); background: linear-gradient(160deg, var(--jcrs-sand), var(--jcrs-cream)); }
+.jcrs-cover-ph small { display: block; font: 600 .62rem "Source Sans 3", sans-serif; color: var(--jcrs-muted); }
+.issues_archive .obj_issue_summary h2 { margin: 0 0 2px; font: 700 1rem "Source Sans 3", sans-serif; }
+.issues_archive .obj_issue_summary h2 a { color: var(--jcrs-ink); text-decoration: none; }
+.issues_archive .obj_issue_summary h2 a:hover { color: var(--jcrs-maroon); }
+.issues_archive .description, .issues_archive .description p { margin: 0; color: var(--jcrs-muted); font-size: .88rem; }
+.jcrs-issue-go { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; text-decoration: none;
+  background: var(--jcrs-cream); color: var(--jcrs-maroon); font-weight: 700; }
+.issues_archive .obj_issue_summary:hover .jcrs-issue-go { background: var(--jcrs-maroon); color: #fff; }
+
+/* ---------- Author guidelines ---------- */
+.jcrs-steps { list-style: none; padding: 0 !important; margin: 0; display: grid; gap: 10px; counter-reset: step; }
+.jcrs-steps li { counter-increment: step; position: relative; margin: 0; padding: 12px 14px 12px 58px; background: var(--jcrs-cream);
+  border: 1px solid var(--jcrs-line); border-radius: 8px; }
+.jcrs-steps li::before { content: counter(step); position: absolute; left: 14px; top: 12px; width: 32px; height: 32px; border-radius: 50%;
+  background: var(--jcrs-maroon); color: #fff; display: grid; place-items: center; font-weight: 700; }
+.jcrs-steps strong { display: block; }
+.jcrs-checklist { list-style: none; padding: 0 !important; }
+.jcrs-checklist li { position: relative; padding-left: 30px; }
+.jcrs-checklist li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--jcrs-sand); color: var(--jcrs-maroon); display: grid; place-items: center; font-weight: 700; font-size: .8rem; }
+
+/* ---------- Contact ---------- */
+.jcrs-contact-card { border: 1px solid var(--jcrs-line); border-radius: var(--jcrs-radius); padding: 18px; background: #fff; border-top: 4px solid var(--jcrs-maroon); }
+.jcrs-contact-card h4 { margin: 0 0 4px; font-size: 1.1rem; font-family: "Playfair Display", serif; }
+.jcrs-contact-card address { font-style: normal; color: var(--jcrs-muted); margin: 8px 0; }
+.jcrs-contact-lines { list-style: none; padding: 0 !important; margin: 10px 0 0; }
+.jcrs-contact-lines li { margin: 0 0 10px; }
+.jcrs-contact-lines b { display: block; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--jcrs-muted); }
+
+
+/* ---------- Home: About panel (reference layout: cover + text + info cards) ---------- */
+.jcrs-intro { display: grid; gap: 18px; align-items: start; }
+.jcrs-intro-cover { justify-self: center; display: block; }
+.jcrs-intro-cover img { display: block; width: 170px; border-radius: 4px; border: 1px solid var(--jcrs-line); box-shadow: 0 8px 22px rgba(86,23,9,.18); }
+.jcrs-intro-body h2 { font-size: 1.45rem; color: var(--jcrs-maroon); margin: 0 0 6px; }
+.jcrs-issn { margin: 0 0 12px; padding-bottom: 10px; border-bottom: 2px solid var(--jcrs-maroon); font-size: .92rem; color: var(--jcrs-muted); }
+.jcrs-issn b { color: var(--jcrs-ink); }
+.jcrs-issn span { margin: 0 6px; color: var(--jcrs-line); }
+.jcrs-intro-body > p { margin: 0 0 16px; }
+.jcrs-intro-cards { display: grid; gap: 12px; }
+.jcrs-infocard { border: 1px solid var(--jcrs-line); border-radius: 8px; background: var(--jcrs-cream); padding: 14px 16px; }
+.jcrs-infocard h3 { margin: 0 0 10px; font-size: 1.05rem; color: var(--jcrs-maroon); }
+.jcrs-infocard dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; font-size: .92rem; }
+.jcrs-infocard dt { font-weight: 700; color: var(--jcrs-ink); }
+.jcrs-infocard dd { margin: 0; color: var(--jcrs-muted); }
+.jcrs-infocard p { margin: 0 0 6px; font-size: .95rem; }
+.jcrs-infocard-cfp { background: #fff; border-left: 5px solid var(--jcrs-gold); }
+.jcrs-infocard-cfp .jcrs-btn { margin-top: 8px; min-height: 42px; }
+
+/* ---------- Home: current issue list ---------- */
+.jcrs-current { border-top: 1px solid var(--jcrs-line); padding-top: 22px; }
+.jcrs-current-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.jcrs-current-head h2 { margin: 0; font-size: 1.45rem; color: var(--jcrs-maroon); }
+.jcrs-current-head a { font-weight: 700; text-decoration: none; font-size: .95rem; }
+.jcrs-current-meta { margin: 4px 0 0; color: var(--jcrs-muted); }
+
+/* ---------- Article entries (home + issue pages) ---------- */
+.obj_issue_toc .section > h2, .obj_issue_toc .section > h3 { display: inline-block; margin: 24px 0 0; padding: 4px 12px; border: 0;
+  border-radius: 4px 4px 0 0; background: var(--jcrs-maroon); color: #fff; font: 600 .85rem "Source Sans 3", sans-serif; letter-spacing: .02em; }
+.obj_issue_toc .section > .cmp_article_list { border-top: 1px solid var(--jcrs-line); }
+.obj_article_summary .meta svg, .jcrs-art-stats svg { width: 14px; height: 14px; fill: currentColor; vertical-align: -2px; margin-right: 5px; }
+.obj_article_summary .meta svg { color: var(--jcrs-ink); }
+.jcrs-art-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.jcrs-art-actions .galleys_links { margin: 0; }
+.jcrs-art-actions .obj_galley_link { min-height: 34px; padding: 0 14px; font-size: .85rem; }
+.jcrs-art-stats { color: var(--jcrs-muted); font-size: .88rem; }
+.jcrs-art-stats svg:first-child { color: #3b6ea8; }
+.jcrs-art-stats svg:last-of-type { color: #c0392b; }
+.jcrs-art-stats .sep { margin: 0 8px; color: var(--jcrs-line); }
+.jcrs-abstract { margin-top: 2px; }
+.jcrs-abstract summary { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; cursor: pointer; font-weight: 700; font-size: .9rem;
+  color: var(--jcrs-maroon); list-style: none; }
+.jcrs-abstract summary::-webkit-details-marker { display: none; }
+.jcrs-abstract summary::before { content: "+"; display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 3px;
+  border: 1px solid var(--jcrs-maroon); font-size: .8rem; line-height: 1; }
+.jcrs-abstract[open] summary::before { content: "−"; }
+.jcrs-abstract > div { margin-top: 6px; padding: 12px 14px; background: var(--jcrs-cream); border-left: 3px solid var(--jcrs-gold); border-radius: 0 6px 6px 0;
+  font-size: .94rem; }
+.jcrs-abstract > div p { margin: 0 0 8px; }
+.jcrs-kw { color: var(--jcrs-muted); font-size: .88rem; margin: 0 !important; }
+
+
+/* ---------- Live OJS pages: native markup ---------- */
+/* The Custom Header plugin already shows the journal title, so hide OJS's repeated site name (kept for screen readers) */
+.pkp_site_name_wrapper .pkp_site_name { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.cmp_breadcrumbs { font-size: .85rem; color: var(--jcrs-muted); }
+.page h1, .page_contact h1, .page_submissions h1 { color: var(--jcrs-maroon); }
+
+/* Stronger than the Default theme's heading rules (which use .pkp_structure_main h2 etc.) */
+.pkp_structure_main h1, .pkp_structure_main h2, .pkp_structure_main h3, .pkp_structure_main .jcrs-infocard h3,
+.pkp_block .title, .pkp_block .jcrs-eic-block strong { font-family: "Playfair Display", "Noto Serif Bengali", Georgia, serif; }
+.pkp_structure_main, .pkp_structure_main p, .pkp_structure_main li, .pkp_structure_main td, .pkp_structure_main dd,
+.pkp_structure_sidebar, .pkp_structure_footer { font-family: "Source Sans 3", "Noto Serif Bengali", system-ui, sans-serif; }
+.pkp_structure_main .obj_issue_toc .section > h2, .pkp_structure_main .obj_issue_toc .section > h3,
+.pkp_structure_main .contact_section h3, .pkp_structure_main .obj_article_summary .title,
+.pkp_structure_main .issues_archive .obj_issue_summary h2, .pkp_structure_main .jcrs-card h4 { font-family: "Source Sans 3", "Noto Serif Bengali", sans-serif; }
+.pkp_structure_main .page_index_journal > .current_issue > h2 { font-family: "Playfair Display", serif; }
+
+/* Home: custom content (About panel, Call for Papers) above the current issue */
+.page_index_journal { display: flex; flex-direction: column; gap: 28px; }
+.page_index_journal > .additional_content { order: -1; }
+.page_index_journal > .current_issue > h2 { margin: 0; font-size: 1.45rem; color: var(--jcrs-maroon); }
+.page_index_journal .current_issue_title { margin: 4px 0 0; font-weight: 700; color: var(--jcrs-ink); }
+.page_index_journal .obj_issue_toc > .heading { display: block; background: none; color: var(--jcrs-muted); padding: 0; margin: 2px 0 6px; }
+.page_index_journal .obj_issue_toc > .heading .cover,
+.page_index_journal .obj_issue_toc > .heading .description { display: none; }
+.page_index_journal .obj_issue_toc > .heading .published { color: var(--jcrs-muted); font-weight: 400; }
+.page_index_journal .read_more { display: inline-block; margin-top: 14px; font-weight: 700; text-decoration: none; }
+
+/* Tighten the Default theme's issue table of contents */
+.pkp_structure_main .obj_issue_toc .sections { margin-top: 6px; }
+.pkp_structure_main .obj_issue_toc .section { margin: 0; padding: 0; }
+.pkp_structure_main .obj_issue_toc .section::before { display: none; }
+.pkp_structure_main .obj_issue_toc .section > h2, .pkp_structure_main .obj_issue_toc .section > h3 { left: 0; margin-top: 22px; }
+.pkp_structure_main .obj_issue_toc .cmp_article_list > li { margin: 0; }
+.pkp_structure_main .obj_article_summary { padding: 12px 0; gap: 4px; }
+.pkp_structure_main .obj_article_summary .meta { padding: 0; gap: 4px 16px; }
+.pkp_structure_main .obj_article_summary .authors { padding: 0; }
+.pkp_structure_main .obj_article_summary .pages { position: static; width: auto; }
+.pkp_structure_main .obj_article_summary .pages::before { content: "pp. "; }
+.pkp_structure_main .obj_article_summary .galleys_links { margin-top: 4px; }
+.pkp_structure_main .obj_article_summary .obj_galley_link { min-height: 34px; padding: 0 14px; font-size: .85rem; }
+.page_index_journal .current_issue_title { margin: 4px 0 0; }
+.pkp_structure_main .obj_issue_toc > .heading .published { margin: 6px 0 0; }
+.page_index_journal .read_more { margin: 16px 0 0; padding-right: 0; }
+
+/* Live article summaries: PDF button and counts on one row, title / meta / abstract full width
+   (counts + abstract toggle come from the JCRS Article Information plugin) */
+.pkp_structure_main .obj_article_summary { display: flex; flex-wrap: wrap; align-items: center; column-gap: 14px; row-gap: 4px; }
+.pkp_structure_main .obj_article_summary > .title, .pkp_structure_main .obj_article_summary > .meta,
+.pkp_structure_main .obj_article_summary > .cover, .pkp_structure_main .obj_article_summary > .jcrs-abstract { flex: 0 0 100%; }
+.pkp_structure_main .obj_article_summary > .galleys_links { margin: 4px 0 0; }
+.pkp_structure_main .obj_article_summary > .jcrs-art-stats { margin-top: 4px; }
+/* Keep icons inline (the header's Tailwind script makes every svg display:block) */
+.jcrs-art-stats { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0 2px; }
+.jcrs-art-stats svg { display: inline-block; flex: none; }
+
+/* Archive: latest issue featured, the rest as compact cards; issue descriptions are long, so hidden in the list */
+.page_issue_archive .issues_archive .description { display: none; }
+.page_issue_archive > .issues_archive > li:first-child { grid-column: 1 / -1; }
+.page_issue_archive > .issues_archive > li:first-child .obj_issue_summary { grid-template-columns: 110px 1fr; padding: 16px; border: 0;
+  background: linear-gradient(150deg, var(--jcrs-maroon) 0%, var(--jcrs-maroon-dark) 100%); }
+.page_issue_archive > .issues_archive > li:first-child .cover img { width: 110px; }
+.page_issue_archive > .issues_archive > li:first-child h2 a { color: #fff; font: 700 1.35rem "Playfair Display", serif; }
+.page_issue_archive > .issues_archive > li:first-child h2::before { content: "Latest Issue"; display: block; width: max-content; margin-bottom: 6px;
+  padding: 2px 8px; border-radius: 4px; background: var(--jcrs-gold); color: var(--jcrs-ink);
+  font: 700 .7rem "Source Sans 3", sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+
+/* OJS prints its own page title, so hide the repeated heading inside pasted content (keep the intro line) */
+.pkp_structure_main .jcrs-page-head .jcrs-kicker, .pkp_structure_main .jcrs-page-head h2 { display: none; }
+.pkp_structure_main .jcrs-page-head { border-bottom: 0; padding-bottom: 0; }
+.pkp_structure_main .jcrs-page-head p { font-size: 1.05rem; }
+
+/* Archive cards on the live site: flexbox (sturdier than the theme's issue-summary layout) */
+.pkp_structure_main .issues_archive .obj_issue_summary { display: flex; align-items: center; gap: 14px; }
+.pkp_structure_main .issues_archive .obj_issue_summary .cover { flex: none; width: 64px; margin: 0; float: none; }
+.pkp_structure_main .issues_archive .obj_issue_summary .cover img { width: 64px; max-width: none; height: auto; }
+.pkp_structure_main .issues_archive .obj_issue_summary h2 { flex: 1; margin: 0; padding: 0; text-align: left; }
+.pkp_structure_main .issues_archive .obj_issue_summary:not(:has(.cover))::before { content: "JCRS"; flex: none; width: 64px; aspect-ratio: 5 / 8;
+  display: grid; place-items: center; border-radius: 3px; border: 1px solid var(--jcrs-line);
+  background: linear-gradient(160deg, var(--jcrs-sand), var(--jcrs-cream)); color: var(--jcrs-maroon); font: 700 .8rem "Playfair Display", serif; }
+.pkp_structure_main.page_issue_archive > .issues_archive > li:first-child .obj_issue_summary,
+.pkp_structure_main .page_issue_archive > .issues_archive > li:first-child .obj_issue_summary { gap: 22px; padding: 18px 20px; }
+.pkp_structure_main .page_issue_archive > .issues_archive > li:first-child .obj_issue_summary .cover,
+.pkp_structure_main .page_issue_archive > .issues_archive > li:first-child .obj_issue_summary .cover img { width: 120px; }
+
+.pkp_structure_main .issues_archive > li { border: 0; padding: 0; margin: 0; }
+.pkp_structure_main .issues_archive > li::before, .pkp_structure_main .issues_archive > li::after { display: none; }
+
+/* Contact cards: undo the theme's fixed widths and floats */
+.pkp_structure_main .contact_section .address, .pkp_structure_main .contact_section .contact { width: auto; float: none; margin: 0; }
+.pkp_structure_main .contact_section .affiliation { font-size: .95rem; line-height: 1.45; }
+.pkp_structure_main .contact_section .name { font-size: 1.15rem; }
+
+/* Issue page banner: cover left, description + date right */
+.pkp_structure_main .page_issue .obj_issue_toc > .heading .cover { float: none; margin: 0; width: auto; }
+.pkp_structure_main .page_issue .obj_issue_toc > .heading .description { margin: 0; }
+@media (min-width: 600px) {
+  .pkp_structure_main .page_issue .obj_issue_toc > .heading { grid-template-columns: auto 1fr; column-gap: 26px; row-gap: 4px; }
+  .pkp_structure_main .page_issue .obj_issue_toc > .heading .cover { grid-column: 1; grid-row: 1 / span 2; }
+  .pkp_structure_main .page_issue .obj_issue_toc > .heading .description { grid-column: 2; align-self: end; }
+  .pkp_structure_main .page_issue .obj_issue_toc > .heading .published { grid-column: 2; align-self: start; }
+}
+
+/* Contact page */
+.contact_section { display: grid; gap: 14px; }
+.contact_section .address, .contact_section .contact { background: #fff; border: 1px solid var(--jcrs-line); border-top: 4px solid var(--jcrs-maroon);
+  border-radius: var(--jcrs-radius); padding: 16px 18px; }
+.contact_section .address { border-top-color: var(--jcrs-gold); color: var(--jcrs-muted); }
+.contact_section h3 { margin: 0 0 6px; font: 700 .78rem "Source Sans 3", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--jcrs-maroon); }
+.contact_section .name { font: 700 1.1rem "Playfair Display", serif; color: var(--jcrs-ink); margin-bottom: 4px; }
+.contact_section .affiliation, .contact_section .title { color: var(--jcrs-muted); }
+.contact_section .phone, .contact_section .email { margin-top: 6px; }
+.contact_section .label { font-weight: 700; margin-right: 6px; }
+
+/* Submissions page (author guidelines + checklist) */
+.page_submissions .cmp_notification { background: var(--jcrs-cream); border-left: 4px solid var(--jcrs-gold); padding: 12px 14px; border-radius: 0 6px 6px 0; }
+.page_submissions .submission_checklist ul { list-style: none; padding: 0; }
+.page_submissions .submission_checklist li { position: relative; padding: 8px 0 8px 30px; border-bottom: 1px solid var(--jcrs-line); }
+.page_submissions .submission_checklist .fa-check { position: absolute; left: 4px; top: 10px; color: var(--jcrs-maroon); }
+.page_submissions h2 { color: var(--jcrs-maroon); font-size: 1.3rem; }
+
+/* ---------- Tablet ---------- */
+@media (min-width: 600px) {
+  .jcrs-page-head h2 { font-size: 2rem; }
+  .jcrs-hero { padding: 28px; }
+  .jcrs-hero h2 { font-size: 1.8rem; }
+  .jcrs-actions { grid-template-columns: auto auto; justify-content: start; }
+  .jcrs-stats { grid-template-columns: repeat(4, 1fr); }
+  .jcrs-cards, .jcrs-people { grid-template-columns: repeat(2, 1fr); }
+  .jcrs-eic { grid-template-columns: auto 1fr; text-align: left; gap: 22px; }
+  .jcrs-eic-photo { width: 140px; height: 140px; }
+  .page_issue h1, .page_issue_archive h1 { font-size: 2rem; }
+  .obj_issue_toc > .heading { grid-template-columns: auto 1fr; align-items: center; padding: 24px; }
+  .issues_archive { grid-template-columns: repeat(2, 1fr); }
+  .jcrs-latest { grid-template-columns: auto 1fr; padding: 24px 28px; }
+  .jcrs-latest .cover { justify-self: start; }
+  .jcrs-intro { grid-template-columns: 170px 1fr; }
+  .jcrs-intro-body > p, .jcrs-abstract > div { text-align: justify; hyphens: auto; }
+  .jcrs-intro-cover { justify-self: start; }
+  .jcrs-intro-cards { grid-template-columns: 1fr 1fr; }
+  .contact_section { grid-template-columns: repeat(2, 1fr); }
+  .jcrs-footer { grid-template-columns: 2fr 1fr 1fr; }
+  .contact_section .address { grid-column: 1 / -1; }
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 980px) {
+  .jcrs-hero { flex-direction: row; align-items: center; gap: 32px; padding: 34px; }
+  .jcrs-hero-cover { order: 1; width: 220px; flex: none; }
+  .jcrs-hero h2 { font-size: 2rem; }
+  .jcrs-cards { grid-template-columns: repeat(3, 1fr); }
+  .jcrs-latest .cover img { width: 170px; }
+  .jcrs-latest h2 { font-size: 1.9rem; }
+  .obj_issue_toc > .heading .cover img { width: 170px; }
+}

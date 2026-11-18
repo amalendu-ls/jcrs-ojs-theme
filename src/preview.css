@@ -1,0 +1,73 @@
+/* Preview-only scaffolding that mimics the OJS Default theme layout (mobile-first).
+   Not needed on the live site: OJS supplies its own header, menu, sidebar and footer. */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; padding-bottom: 72px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 16px; }
+.draft-note { background: #fff6d6; color: #5b4500; text-align: center; font-size: .82rem; padding: 6px 16px; }
+
+.topbar { background: var(--jcrs-maroon-dark); color: #f3e6d3; font-size: .74rem; letter-spacing: .04em; }
+.topbar .wrap { display: flex; justify-content: center; gap: 12px; padding: 6px 16px; }
+.topbar .publisher { display: none; }
+
+.brand { background: #fff; }
+.brand .wrap { padding: 12px 16px; }
+.brand-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand img { width: 52px; height: auto; flex: none; }
+.brand-title { display: block; font: 700 1.22rem/1.2 "Playfair Display", serif; color: var(--jcrs-maroon); }
+.brand-tag { display: block; margin-top: 2px; color: var(--jcrs-muted); font-style: italic; font-size: .82rem; line-height: 1.35; }
+
+.navbar .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 16px; }
+.nav-toggle { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 14px; border: 0; border-radius: 6px;
+  background: var(--jcrs-gold); color: var(--jcrs-ink); font: 700 .95rem "Source Sans 3", sans-serif; cursor: pointer; }
+.nav-toggle .bars { width: 18px; height: 2px; background: currentColor; box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor; }
+.nav-search { color: #fff; text-decoration: none; font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; }
+.pkp_navigation_primary { list-style: none; margin: 0; padding: 0 0 8px; display: none; flex-direction: column; width: 100%; }
+.navbar.open .pkp_navigation_primary { display: flex; }
+.pkp_navigation_primary > li > a { display: flex; align-items: center; min-height: 46px; padding: 0 6px; text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.12); }
+.pkp_navigation_primary > li > a.is-current { color: var(--jcrs-gold); }
+.nav-submit-desktop { display: none; }
+
+.layout { display: grid; grid-template-columns: 1fr; gap: 18px; padding: 16px 0 32px; }
+.pkp_structure_content { padding: 16px; min-width: 0; }
+.sidebar .pkp_block { background: #fff; border-radius: var(--jcrs-radius); padding: 16px; margin-bottom: 14px; }
+.sidebar .title { display: block; font-size: 1.08rem; margin-bottom: 8px; }
+.sidebar ul { margin: 0; padding-left: 18px; }
+.sidebar li { margin-bottom: 6px; }
+.sidebar p { margin: 0; }
+
+.home-current { margin-top: 32px; }
+.home-current > h2 { color: var(--jcrs-maroon); font-size: 1.3rem; margin: 0 0 4px; }
+
+.pkp_structure_footer_wrapper { padding: 26px 0; font-size: .92rem; }
+
+.mobile-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(86,23,9,.97); box-shadow: 0 -4px 16px rgba(0,0,0,.18); }
+.mobile-cta a { display: flex; justify-content: center; align-items: center; min-height: 46px; border-radius: 8px;
+  background: var(--jcrs-gold); color: var(--jcrs-ink); font-weight: 700; text-decoration: none; }
+
+@media (min-width: 600px) {
+  .topbar .wrap { justify-content: space-between; }
+  .topbar .publisher { display: inline; }
+  .brand img { width: 66px; }
+  .brand-title { font-size: 1.6rem; }
+  .brand-tag { font-size: .92rem; }
+  .pkp_structure_content { padding: 24px; }
+}
+@media (min-width: 980px) {
+  body { padding-bottom: 0; }
+  .mobile-cta, .nav-toggle { display: none; }
+  .brand .wrap { padding: 18px 16px; }
+  .brand-link { gap: 18px; }
+  .brand img { width: 74px; }
+  .brand-title { font-size: 2rem; }
+  .navbar .wrap { flex-wrap: nowrap; padding: 0 16px; }
+  .pkp_navigation_primary { display: flex; flex-direction: row; padding: 0; width: auto; margin-right: auto; }
+  .pkp_navigation_primary > li > a { min-height: 50px; padding: 0 12px; border-bottom: 3px solid transparent; }
+  .pkp_navigation_primary > li > a.is-current { border-bottom-color: var(--jcrs-gold); }
+  .nav-search { order: 3; }
+  .nav-submit-desktop { order: 2; display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 6px;
+    background: var(--jcrs-gold); color: var(--jcrs-ink); font-weight: 700; text-decoration: none; }
+  .layout { grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; padding: 24px 0 40px; }
+  .pkp_structure_content { padding: 28px; }
+}

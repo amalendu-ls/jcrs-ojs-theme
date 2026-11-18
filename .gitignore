@@ -1,0 +1,6 @@
+site/
+ojs/
+*.tar.gz
+backup-*.json
+src/img/*.jpg
+__pycache__/

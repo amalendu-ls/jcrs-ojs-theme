@@ -1,0 +1,36 @@
+{
+ "issue": "Vol. 5 No. 1 (2026)",
+ "published": "31-08-2026",
+ "statsNote": "Sample data. Replace with your issue's articles; counts come from OJS usage statistics.",
+ "articles": [
+  {
+   "section": "Editorial Note",
+   "id": 1,
+   "galley": 1,
+   "lang": "en",
+   "title": "Editorial Statement",
+   "authors": "Editor Name",
+   "pages": "i",
+   "abstract": "A short editorial note introducing the issue and its articles.",
+   "abstractViews": 0,
+   "downloads": 0
+  },
+  {
+   "section": "Research Articles",
+   "id": 2,
+   "galley": 2,
+   "lang": "en",
+   "title": "Sample Research Article Title",
+   "authors": "Author One, Author Two",
+   "pages": "1-15",
+   "abstract": "This is placeholder abstract text. Each article in the issue table of contents shows an expandable abstract, its keywords and its view and download counts.",
+   "keywords": [
+    "keyword one",
+    "keyword two",
+    "keyword three"
+   ],
+   "abstractViews": 0,
+   "downloads": 0
+  }
+ ]
+}
